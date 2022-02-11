@@ -41,8 +41,14 @@ class BinaryClassificationModel(nn.Module):
         input_matrix shape: (batch_size,max_seq_len)
         output shape:       (batch_size,num_classes) #2 classes here since it's binary classification
         '''
-        batch_size = input_matrix.shape[0]
+        #print(input_matrix
+        #    ,'\n --------------------------'
+        #    ,len(input_matrix)
+        #    ,'\n --------------------------'
+        #    ,input_matrix[0])
+        batch_size = len(input_matrix)
         output = self.huggingface_bert.encode(input_matrix)
+        output = torch.tensor(output).cuda()
         output = self.self_defined_model(output)
         logits = output.view(batch_size,self.num_classes)
         #'logits' are by definition the raw output vectors for classification tasks
