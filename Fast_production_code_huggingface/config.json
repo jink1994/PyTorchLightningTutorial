@@ -1,0 +1,10 @@
+{
+
+  "num_classes":          2, 
+  "dropout_rate":         0.4,
+  "bert_model_label":     "all-MiniLM-L6-v2",
+  "complete_path":        "./data/tcl_complete_sentences_12.34w.csv",
+  "incomplete_path":      "./data/tcl_incomplete_sentences_12.34w.csv",
+  "batch_size":           64
+  
+}
